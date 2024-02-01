@@ -1,7 +1,6 @@
 import React from "react";
 import Category from "./Category";
 import "../../styles/styles.css";
-import { Link } from "react-router-dom";
 function CategoryList() {
   const categories = [
     "Movies",
@@ -14,21 +13,10 @@ function CategoryList() {
     "Funny Clips"
   ];
 
-  const navigateToCategory = (category) => {
-    console.log("Navigating to " + category);
-    // Implement navigation logic
-  };
-
   return (
     <div>
       {categories.map((category) => (
-        <Link
-          to={`/community/${category.toLowerCase().replace(/\s/g, "")}`}
-          key={category}
-          className="category-link"
-        >
-          <Category name={category} onClick={() => navigateToCategory} />
-        </Link>
+        <Category key={category} name={category} />
       ))}
     </div>
   );
