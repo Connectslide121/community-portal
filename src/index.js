@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage";
 import Root from "./pages/Root";
-import HomePage from "./pages/HomePage";
 import CommunityPage from "./pages/CommunityPage";
 import LandingPage from "./pages/LandingPage";
 import TrendingPage from "./pages/TrendingPage";
@@ -29,11 +28,6 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
-      {
-        path: "/home",
-        element: <HomePage />,
-        errorElement: <ErrorPage />
-      },
       {
         path: "/trending",
         element: <TrendingPage />,

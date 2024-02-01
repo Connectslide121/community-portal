@@ -15,8 +15,8 @@ body {
 .main-container {
   background-color: #fff;
   margin: 0 auto;
-  /* max-width: 60%;
-  min-width: 700px; */
+  max-width: 60%;
+  min-width: 700px;
 }
 
 #error-page {
@@ -134,8 +134,16 @@ body.dark-mode {
   color: #fff;
 }
 
+body.dark-mode .main-container {
+  background-color: #222;
+}
+
 body.dark-mode main {
   background-color: #111;
+}
+
+body.dark-mode h2 {
+  color: #fff;
 }
 
 body.dark-mode .last-post {

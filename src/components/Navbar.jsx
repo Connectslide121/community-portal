@@ -4,9 +4,6 @@ import { NavLink } from "react-router-dom";
 export default function Navbar() {
   return (
     <div className="nav-bar">
-      <NavLink to="/home" className="nav-link">
-        Home
-      </NavLink>
       <NavLink to="/trending" className="nav-link">
         Trending
       </NavLink>
