@@ -1,17 +1,111 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import ErrorPage from "./pages/ErrorPage";
+import Root from "./pages/Root";
+import HomePage from "./pages/HomePage";
+import CommunityPage from "./pages/CommunityPage";
+import LandingPage from "./pages/LandingPage";
+import TrendingPage from "./pages/TrendingPage";
+import EventsPage from "./pages/EventsPage";
+import NewsPage from "./pages/NewsPage";
+import LoginPage from "./pages/LoginPage";
+import Movies from "./pages/community/MoviesPage";
+import Series from "./pages/community/SeriesPage";
+import Books from "./pages/community/BooksPage";
+import Games from "./pages/community/GamesPage";
+import Music from "./pages/community/MusicPage";
+import Technology from "./pages/community/TechnologyPage";
+import FunnyImages from "./pages/community/FunnyImagesPage";
+import FunnyClips from "./pages/community/FunnyClipsPage";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <LandingPage />,
+    errorElement: <ErrorPage />
+  },
+  {
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/home",
+        element: <HomePage />,
+        errorElement: <ErrorPage />
+      },
+      {
+        path: "/trending",
+        element: <TrendingPage />,
+        errorElement: <ErrorPage />
+      },
+      {
+        path: "/events",
+        element: <EventsPage />,
+        errorElement: <ErrorPage />
+      },
+      {
+        path: "/news",
+        element: <NewsPage />,
+        errorElement: <ErrorPage />
+      },
+      {
+        path: "/community",
+        element: <CommunityPage />,
+        errorElement: <ErrorPage />
+      },
+      {
+        path: "/community/movies",
+        element: <Movies />,
+        errorElement: <ErrorPage />
+      },
+      {
+        path: "/community/series",
+        element: <Series />,
+        errorElement: <ErrorPage />
+      },
+      {
+        path: "/community/books",
+        element: <Books />,
+        errorElement: <ErrorPage />
+      },
+      {
+        path: "/community/games",
+        element: <Games />,
+        errorElement: <ErrorPage />
+      },
+      {
+        path: "/community/music",
+        element: <Music />,
+        errorElement: <ErrorPage />
+      },
+      {
+        path: "/community/technology",
+        element: <Technology />,
+        errorElement: <ErrorPage />
+      },
+      {
+        path: "/community/funnyimages",
+        element: <FunnyImages />,
+        errorElement: <ErrorPage />
+      },
+      {
+        path: "/community/funnyclips",
+        element: <FunnyClips />,
+        errorElement: <ErrorPage />
+      },
+      {
+        path: "/login",
+        element: <LoginPage />,
+        errorElement: <ErrorPage />
+      }
+    ]
+  }
+]);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
