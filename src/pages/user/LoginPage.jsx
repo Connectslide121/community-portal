@@ -5,7 +5,7 @@ import { login } from "../../APIs/API";
 export async function action({ request }) {
   const formData = await request.formData();
   const input = Object.fromEntries(formData);
-  const response = await login(input);
+  await login(input);
   return redirect("/trending");
 }
 
@@ -16,10 +16,19 @@ export default function LoginPage() {
         <h1>Login</h1>
         <div className="user-login-form">
           <Form method="post">
-            <label forHtml="email">Email</label>
-            <input type="email" name="email" placeholder="email" />
-            <label forHtml="password">Password</label>
-            <input type="password" name="password" placeholder="password" />
+            <div className="user-login-form-group">
+              <label forHtml="email">Email</label>
+              <input type="email" name="email" placeholder="email" required />
+            </div>
+            <div className="user-login-form-group">
+              <label forHtml="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                placeholder="password"
+                required
+              />
+            </div>
             <button type="submit">Login</button>
           </Form>
         </div>

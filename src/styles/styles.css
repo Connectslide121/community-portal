@@ -238,22 +238,93 @@ h2 span {
   justify-content: center;
   margin: auto;
   gap: 20px;
-  width: 300px;
+  min-width: 35%;
   height: 500px;
-  padding: 10%;
+  padding: 5%;
   border: #4fb9ff 1px solid;
+}
+
+.user-login-form,
+.user-register-form {
+  width: 100%;
 }
 
 .user-login-form form,
 .user-register-form form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
+  width: 100%;
+}
+
+.user-login-form form input,
+.user-register-form form input {
+  width: 100%;
+  padding: 5px;
 }
 
 .user-login-register {
   display: flex;
+  gap: 4px;
+}
+
+.user-login-form-group,
+.user-register-form-group {
+  display: flex;
   flex-direction: column;
-  text-align: center;
-  text-wrap: nowrap;
+  gap: 2px;
+}
+
+.passwords-dont-match-placeholder {
+  height: 6px;
+}
+
+.passwords-dont-match {
+  font-size: 12px;
+  color: red;
+}
+
+.user-login-form button,
+.user-register-form button {
+  width: 100px;
+  margin-inline: auto;
+  padding: 8px;
+  background-color: #4fb9ff;
+  color: #fff;
+  border: none;
+}
+
+.user-login-form button:hover,
+.user-register-form button:hover {
+  background-color: #4fb9ffc9;
+  cursor: pointer;
+}
+
+.user-register-password-tooltip-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.user-register-password-tooltip {
+  position: absolute;
+  background-color: wheat;
+  right: -300px;
+  top: -30px;
+  padding: 5px 8px;
+  font-size: 14px;
+  border-radius: 5px;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.user-register-password-tooltip:after {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 10px solid wheat;
+  border-color: transparent wheat transparent transparent;
 }

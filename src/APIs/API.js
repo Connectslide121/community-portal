@@ -7,8 +7,8 @@ export async function register(input) {
       password: input.password
     })
     .catch(function (error) {
-      alert("Error logging in");
-      console.log("Error logging in:", error);
+      alert("Error registering");
+      console.log("Error registering:", error);
     });
   return response;
 }
