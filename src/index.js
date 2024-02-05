@@ -8,7 +8,7 @@ import LandingPage from "./pages/LandingPage";
 import TrendingPage from "./pages/TrendingPage";
 import EventsPage from "./pages/EventsPage";
 import NewsPage from "./pages/NewsPage";
-import LoginPage from "./pages/LoginPage";
+import LoginPage from "./pages/user/LoginPage";
 import Movies from "./pages/community/MoviesPage";
 import Series from "./pages/community/SeriesPage";
 import Books from "./pages/community/BooksPage";
@@ -17,6 +17,10 @@ import Music from "./pages/community/MusicPage";
 import Technology from "./pages/community/TechnologyPage";
 import FunnyImages from "./pages/community/FunnyImagesPage";
 import FunnyClips from "./pages/community/FunnyClipsPage";
+import RegisterPage from "./pages/user/RegisterPage";
+
+import { action as loginAction } from "./pages/user/LoginPage";
+import { action as registerAction } from "./pages/user/RegisterPage";
 
 const router = createBrowserRouter([
   {
@@ -91,7 +95,14 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <LoginPage />,
-        errorElement: <ErrorPage />
+        errorElement: <ErrorPage />,
+        action: loginAction
+      },
+      {
+        path: "/register",
+        element: <RegisterPage />,
+        errorElement: <ErrorPage />,
+        action: registerAction
       }
     ]
   }
