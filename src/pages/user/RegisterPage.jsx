@@ -12,17 +12,22 @@ export async function action({ request }) {
 export default function RegisterPage() {
   return (
     <>
-      <div className="register-page">
+      <div className="user-register-page-wrapper">
         <h1>Register</h1>
-        <Form method="post">
-          <label forHtml="email">Email</label>
-          <input type="email" name="email" placeholder="email" />
-          <label forHtml="password">Password</label>
-          <input type="password" name="password" placeholder="password" />
-          <button type="submit">Register</button>
-        </Form>
+        <div className="user-register-form">
+          <Form method="post">
+            <label forHtml="email">Email</label>
+            <input type="email" name="email" placeholder="email" />
+            <label forHtml="password">Password</label>
+            <input type="password" name="password" placeholder="password" />
+            <button type="submit">Register</button>
+          </Form>
+        </div>
+        <div className="user-login-register">
+          <p>Already have an account?</p>
+          <Link to="/login"> Login</Link>
+        </div>
       </div>
-      <Link to="/login">Login</Link>
     </>
   );
 }

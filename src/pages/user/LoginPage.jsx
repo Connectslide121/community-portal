@@ -12,17 +12,22 @@ export async function action({ request }) {
 export default function LoginPage() {
   return (
     <>
-      <div className="login-page">
+      <div className="user-login-page-wrapper">
         <h1>Login</h1>
-        <Form method="post">
-          <label forHtml="email">Email</label>
-          <input type="email" name="email" placeholder="email" />
-          <label forHtml="password">Password</label>
-          <input type="password" name="password" placeholder="password" />
-          <button type="submit">Login</button>
-        </Form>
+        <div className="user-login-form">
+          <Form method="post">
+            <label forHtml="email">Email</label>
+            <input type="email" name="email" placeholder="email" />
+            <label forHtml="password">Password</label>
+            <input type="password" name="password" placeholder="password" />
+            <button type="submit">Login</button>
+          </Form>
+        </div>
+        <div className="user-login-register">
+          <p>Are you new here?</p>
+          <Link to="/register"> Register</Link>
+        </div>
       </div>
-      <Link to="/register">Register</Link>
     </>
   );
 }

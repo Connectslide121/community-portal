@@ -227,3 +227,33 @@ body.dark-mode .nav-bar {
 h2 span {
   color: red;
 }
+
+/****************************************************************************** USER ***********************/
+
+.user-login-page-wrapper,
+.user-register-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  gap: 20px;
+  width: 300px;
+  height: 500px;
+  padding: 10%;
+  border: #4fb9ff 1px solid;
+}
+
+.user-login-form form,
+.user-register-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-login-register {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  text-wrap: nowrap;
+}
