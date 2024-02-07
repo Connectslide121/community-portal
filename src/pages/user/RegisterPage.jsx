@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Form, Link, redirect } from "react-router-dom";
 import { register } from "../../APIs/API";
-import PasswordTooltipIcon from "../../components/user/PasswordTooltipIcon";
+import PasswordInput from "password-input-component";
 
 export async function action({ request }) {
   const formData = await request.formData();
@@ -20,56 +20,17 @@ export async function action({ request }) {
     return 0;
   } else {
     await register(input);
-    return redirect("/trending");
+    return redirect("/login");
   }
 }
 
 export default function RegisterPage() {
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
-  const [showTooltip, setShowTooltip] = useState(false);
-  const [passwordTooShort, setPasswordTooShort] = useState(false);
-  const [passwordRequiresNonAlphanumeric, setPasswordRequiresNonAlphanumeric] =
-    useState(false);
-  const [passwordRequiresLower, setPasswordRequiresLower] = useState(false);
-  const [passwordRequiresUpper, setPasswordRequiresUpper] = useState(false);
-  const [passwordRequiresDigit, setPasswordRequiresDigit] = useState(false);
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
-
-  useEffect(() => {
-    if (password.length >= 6) {
-      setPasswordTooShort(true);
-    } else {
-      setPasswordTooShort(false);
-    }
-    if (password.match(/[a-z]/)) {
-      setPasswordRequiresLower(true);
-    } else {
-      setPasswordRequiresLower(false);
-    }
-    if (password.match(/[A-Z]/)) {
-      setPasswordRequiresUpper(true);
-    } else {
-      setPasswordRequiresUpper(false);
-    }
-    if (password.match(/[0-9]/)) {
-      setPasswordRequiresDigit(true);
-    } else {
-      setPasswordRequiresDigit(false);
-    }
-    if (password.match(/[^a-zA-Z0-9]/)) {
-      setPasswordRequiresNonAlphanumeric(true);
-    } else {
-      setPasswordRequiresNonAlphanumeric(false);
-    }
-  }, [password]);
-
-  useEffect(() => {
-    console.log(passwordTooShort);
-  }, [passwordTooShort]);
 
   return (
     <>
@@ -83,59 +44,10 @@ export default function RegisterPage() {
             </div>
             <div className="user-register-form-group">
               <label forHtml="password">Password</label>
-              <div className="user-register-password-tooltip-wrapper">
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="password"
-                  onChange={(e) => handlePasswordChange(e)}
-                  onFocus={() => setShowTooltip(true)}
-                  onBlur={() => setShowTooltip(false)}
-                  required
-                />
-                {showTooltip && (
-                  <div className="user-register-password-tooltip">
-                    <p>
-                      <span>
-                        <PasswordTooltipIcon condition={passwordTooShort} />
-                      </span>{" "}
-                      at least 6 characters
-                    </p>
-                    <p>
-                      <span>
-                        <PasswordTooltipIcon
-                          condition={passwordRequiresNonAlphanumeric}
-                        />
-                      </span>{" "}
-                      at least one non alphanumeric character
-                    </p>
-                    <p>
-                      <span>
-                        <PasswordTooltipIcon
-                          condition={passwordRequiresLower}
-                        />
-                      </span>{" "}
-                      at least one lowercase ('a'-'z')
-                    </p>
-                    <p>
-                      <span>
-                        <PasswordTooltipIcon
-                          condition={passwordRequiresUpper}
-                        />
-                      </span>{" "}
-                      at least one uppercase ('A'-'Z')
-                    </p>
-                    <p>
-                      <span>
-                        <PasswordTooltipIcon
-                          condition={passwordRequiresDigit}
-                        />
-                      </span>{" "}
-                      at least one digit ('0'-'9')
-                    </p>
-                  </div>
-                )}
-              </div>
+              <PasswordInput
+                inputPlaceholder="password"
+                onInputChange={(e) => handlePasswordChange(e)}
+              />
             </div>
             <div className="user-register-form-group">
               <label forHtml="password">Confirm password</label>

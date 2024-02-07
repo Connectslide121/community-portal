@@ -300,31 +300,21 @@ h2 span {
   cursor: pointer;
 }
 
-.user-register-password-tooltip-wrapper {
-  position: relative;
-  display: inline-block;
-}
-
-.user-register-password-tooltip {
-  position: absolute;
-  background-color: wheat;
-  right: -300px;
-  top: -30px;
-  padding: 5px 8px;
-  font-size: 14px;
-  border-radius: 5px;
-  width: fit-content;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.user-register-password-tooltip:after {
+.password-tooltip:after {
   content: "";
   position: absolute;
   left: -20px;
   top: 50%;
   transform: translateY(-50%);
-  border: 10px solid wheat;
-  border-color: transparent wheat transparent transparent;
+  border: 10px solid rgb(237, 237, 162);
+  border-color: transparent rgb(237, 237, 162) transparent transparent;
+}
+
+.password-tooltip {
+  top: -46px !important;
+  right: -266px !important;
+  border-radius: 6px;
+  background-color: rgb(237, 237, 162) !important;
+  color: black !important;
+  font-size: 12px;
 }
