@@ -187,7 +187,7 @@ body.dark-mode .nav-bar {
   padding: 5px 10px;
   border-radius: 10px;
   font-size: 20px;
-  transition: background-color 0.3s;
+  transition: 0.1s;
   background: none;
   border: none;
 }
@@ -200,6 +200,10 @@ body.dark-mode .nav-bar {
 .nav-link:hover {
   background-color: #fff;
   color: #4fb9ff;
+}
+
+.nav-link:hover {
+  cursor: pointer;
 }
 
 .user-options {

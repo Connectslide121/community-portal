@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../styles/styles.css";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,11 +9,23 @@ import {
   faPeopleGroup,
   faUser
 } from "@fortawesome/free-solid-svg-icons";
-import { LoginContext } from "../contexts";
+import { CurrentUserContext, LoginContext } from "../contexts";
+import { logout } from "../APIs/API";
 
 export default function Navbar() {
   const [showUserOptions, setShowUserOptions] = useState(false);
   const { loggedIn, setLoggedIn } = useContext(LoginContext);
+  const { currentUser } = useContext(CurrentUserContext);
+
+  useEffect(() => {
+    console.log("Current user:", currentUser);
+  }, [currentUser]);
+
+  const HandleLogout = () => {
+    setLoggedIn(false);
+    setShowUserOptions(false);
+    logout();
+  };
 
   return (
     <div className="nav-bar">
@@ -51,16 +63,20 @@ export default function Navbar() {
               <span>
                 <FontAwesomeIcon icon={faUser} />
               </span>
-              <p>User</p>
+              <p>{currentUser && currentUser.email}</p>
             </button>
             {showUserOptions && (
               <div className="user-options">
-                <NavLink to="/user" className="nav-link user-option">
+                <NavLink
+                  to="/user"
+                  className="nav-link user-option"
+                  onClick={() => setShowUserOptions(false)}
+                >
                   <p>User page</p>
                 </NavLink>
                 <NavLink
-                  to={"/login"}
-                  onClick={() => setLoggedIn(false)}
+                  to="/login"
+                  onClick={HandleLogout}
                   className="nav-link user-option"
                 >
                   <p>Logout</p>

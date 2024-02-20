@@ -20,7 +20,7 @@ import LoginPage, { action as loginAction } from "./pages/user/LoginPage";
 import RegisterPage, {
   action as registerAction
 } from "./pages/user/RegisterPage";
-import UserPage from "./pages/user/UserPage";
+import UserProfile from "./pages/user/UserProfile";
 
 const router = createBrowserRouter([
   {
@@ -106,7 +106,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/user/",
-        element: <UserPage />,
+        element: <UserProfile />,
         errorElement: <ErrorPage />
       }
     ]
