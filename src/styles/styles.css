@@ -175,6 +175,7 @@ body.dark-mode .nav-bar {
   justify-content: space-between;
   border-top: 4px solid #fff;
   height: 6vh;
+  position: relative;
 }
 
 .nav-link {
@@ -187,6 +188,8 @@ body.dark-mode .nav-bar {
   border-radius: 10px;
   font-size: 20px;
   transition: background-color 0.3s;
+  background: none;
+  border: none;
 }
 
 .nav-link span {
@@ -197,6 +200,19 @@ body.dark-mode .nav-bar {
 .nav-link:hover {
   background-color: #fff;
   color: #4fb9ff;
+}
+
+.user-options {
+  position: absolute;
+  background-color: #4fb9ff;
+  z-index: 100;
+  right: 0;
+  bottom: -80px;
+  padding: 10px;
+}
+
+.user-option {
+  width: 100%;
 }
 
 /********************************************************************************/

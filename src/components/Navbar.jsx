@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "../styles/styles.css";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,6 +12,7 @@ import {
 import { LoginContext } from "../contexts";
 
 export default function Navbar() {
+  const [showUserOptions, setShowUserOptions] = useState(false);
   const { loggedIn, setLoggedIn } = useContext(LoginContext);
 
   return (
@@ -40,16 +41,42 @@ export default function Navbar() {
         </span>
         <p>Community</p>
       </NavLink>
-      <NavLink to="/login" className="nav-link">
-        <span>
-          <FontAwesomeIcon icon={faUser} />
-        </span>
+      <>
         {loggedIn ? (
-          <p onClick={() => setLoggedIn(false)}>Logout</p>
+          <>
+            <button
+              onClick={() => setShowUserOptions(!showUserOptions)}
+              className="nav-link"
+            >
+              <span>
+                <FontAwesomeIcon icon={faUser} />
+              </span>
+              <p>User</p>
+            </button>
+            {showUserOptions && (
+              <div className="user-options">
+                <NavLink to="/user" className="nav-link user-option">
+                  <p>User page</p>
+                </NavLink>
+                <NavLink
+                  to={"/login"}
+                  onClick={() => setLoggedIn(false)}
+                  className="nav-link user-option"
+                >
+                  <p>Logout</p>
+                </NavLink>
+              </div>
+            )}
+          </>
         ) : (
-          <p>Login</p>
+          <NavLink to="/login" className="nav-link">
+            <span>
+              <FontAwesomeIcon icon={faUser} />
+            </span>
+            <p>Login</p>
+          </NavLink>
         )}
-      </NavLink>
+      </>
     </div>
   );
 }
