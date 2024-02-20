@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../styles/styles.css";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,8 +9,11 @@ import {
   faPeopleGroup,
   faUser
 } from "@fortawesome/free-solid-svg-icons";
+import { LoginContext } from "../contexts";
 
 export default function Navbar() {
+  const { loggedIn, setLoggedIn } = useContext(LoginContext);
+
   return (
     <div className="nav-bar">
       <NavLink to="/trending" className="nav-link">
@@ -41,7 +44,11 @@ export default function Navbar() {
         <span>
           <FontAwesomeIcon icon={faUser} />
         </span>
-        <p>Login</p>
+        {loggedIn ? (
+          <p onClick={() => setLoggedIn(false)}>Logout</p>
+        ) : (
+          <p>Login</p>
+        )}
       </NavLink>
     </div>
   );

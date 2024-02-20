@@ -306,15 +306,15 @@ h2 span {
   left: -20px;
   top: 50%;
   transform: translateY(-50%);
-  border: 10px solid rgb(237, 237, 162);
-  border-color: transparent rgb(237, 237, 162) transparent transparent;
+  border: 10px solid #ededa2;
+  border-color: transparent #ededa2 transparent transparent;
 }
 
 .password-tooltip {
   top: -46px !important;
   right: -266px !important;
   border-radius: 6px;
-  background-color: rgb(237, 237, 162) !important;
+  background-color: #ededa2 !important;
   color: black !important;
   font-size: 12px;
 }

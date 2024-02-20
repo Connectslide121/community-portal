@@ -105,7 +105,7 @@ const router = createBrowserRouter([
         action: registerAction
       },
       {
-        path: "/user/:userid", //I don't know how to get userid
+        path: "/user/",
         element: <UserPage />,
         errorElement: <ErrorPage />
       }

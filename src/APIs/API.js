@@ -23,5 +23,7 @@ export async function login(input) {
       alert("Error logging in");
       console.log("Error logging in:", error);
     });
+  console.log(response);
+
   return response;
 }

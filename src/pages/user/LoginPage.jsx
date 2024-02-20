@@ -5,8 +5,11 @@ import { login } from "../../APIs/API";
 export async function action({ request }) {
   const formData = await request.formData();
   const input = Object.fromEntries(formData);
-  await login(input);
-  return redirect("/trending");
+  const response = await login(input);
+  if (response === undefined) return 0;
+  else if (response.status === 200) {
+    return redirect("/user");
+  } else return 0;
 }
 
 export default function LoginPage() {
@@ -17,11 +20,11 @@ export default function LoginPage() {
         <div className="user-login-form">
           <Form method="post">
             <div className="user-login-form-group">
-              <label forHtml="email">Email</label>
+              <label htmlFor="email">Email</label>
               <input type="email" name="email" placeholder="email" required />
             </div>
             <div className="user-login-form-group">
-              <label forHtml="password">Password</label>
+              <label htmlFor="password">Password</label>
               <input
                 type="password"
                 name="password"
