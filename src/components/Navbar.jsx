@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import "../styles/styles.css";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,10 +16,6 @@ export default function Navbar() {
   const [showUserOptions, setShowUserOptions] = useState(false);
   const { loggedIn, setLoggedIn } = useContext(LoginContext);
   const { currentUser } = useContext(CurrentUserContext);
-
-  useEffect(() => {
-    console.log("Current user:", currentUser);
-  }, [currentUser]);
 
   const HandleLogout = () => {
     setLoggedIn(false);

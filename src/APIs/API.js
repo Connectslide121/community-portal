@@ -51,3 +51,19 @@ export async function getMe() {
   const currentUser = response.data;
   return currentUser;
 }
+
+export async function updateMe(input) {
+  console.log("input", input);
+  const response = await axios
+    .put(`/api/users/update/${input.id}`, {
+      userId: input.id,
+      userName: input.userName,
+      profilePicturePath: input.profilePicturePath,
+      description: input.description
+    })
+    .catch(function (error) {
+      alert("Error updating user info");
+      console.log("Error updating user info:", error);
+    });
+  return response;
+}
